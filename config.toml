@@ -1,0 +1,137 @@
+baseURL = '/'
+languageCode = 'en-us'
+title = 'The Viking'
+theme = "hello-friend-ng"
+
+PygmentsCodeFences = true
+PygmentsStyle = "monokai"
+
+paginate = 10
+rssLimit = 10
+copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
+
+# googleAnalytics = ""
+# disqusShortname = ""
+
+archetypeDir = "archetypes"
+contentDir = "content"
+dataDir = "data"
+layoutDir = "layouts"
+publishDir = "public"
+
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+canonifyURLs = true
+
+enableRobotsTXT = true
+enableGitInfo = false
+enableEmoji = true
+enableMissingTranslationPlaceholders = false
+disableRSS = false
+disableSitemap = false
+disable404 = false
+disableHugoGeneratorInject = false
+
+[permalinks]
+posts = "/posts/:title/"
+
+[author]
+name = "Phil Proctor"
+
+[blackfriday]
+hrefTargetBlank = true
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+series = "series"
+
+[params]
+dateform = "Jan 2, 2006"
+dateformShort = "Jan 2"
+dateformNum = "2006-01-02"
+dateformNumTime = "2006-01-02 15:04"
+description = ""
+keywords = ""
+images = [""]
+
+# Home subtitle of the index page.
+homeSubtitle = "Nomadic expeditions in the digital era"
+
+# Set a background for the homepage
+# backgroundImage = "assets/images/background.jpg"
+
+# Prefix of link to the git commit detail page. GitInfo must be enabled.
+#
+# gitUrl = ""
+disableReadOtherPosts = false
+enableThemeToggle = true
+enableSharingButtons = true
+enableGlobalLanguageMenu = false
+
+# Integrate Javascript files or stylesheets by adding the url to the external assets or by
+# linking local files with their path relative to the static folder, e.g. "css/styles.css"
+#
+customCSS = []
+customJS = []
+
+justifyContent = false # Set "text-align: justify" to .post-content.
+
+[params.footer]
+trademark = true
+rss = true
+copyright = true
+author = true
+
+topText = []
+bottomText = []
+
+[params.logo]
+logoText = "the viking"
+logoHomeLink = "/"
+logoCursorColor = "#12a212"
+logoCursorAnimate = "2s"
+logoMark = "➤"
+
+[params.favicon.color]
+mask = "#1b1c1d"
+msapplication = "#1b1c1d"
+theme = "#1b1c1d"
+
+# Commento is more than just a comments widget you can embed — 
+# it’s a return to the roots of the internet. 
+# An internet without the tracking and invasions of privacy. 
+# An internet that is simple and lightweight. 
+# An internet that is focused on interesting discussions, not ads. 
+# A better internet.
+# Uncomment this to enable Commento.
+#
+# [params.commento]
+#   url = ""
+
+# Uncomment this if you want a portrait on your start page
+#
+[params.portrait]
+path = "/img/profile-small.png"
+alt = "Portrait"
+maxWidth = "150px"
+
+[menu]
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/about"
+
+[[menu.main]]
+identifier = "posts"
+name = "Posts"
+url = "/posts"
+
+[[params.social]]
+name = "twitter"
+url = "https://twitter.com/"
+
+[[params.social]]
+name = "github"
+url = "https://github.com/philproctor"
