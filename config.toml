@@ -57,7 +57,7 @@ keywords = ""
 images = [""]
 
 # Home subtitle of the index page.
-homeSubtitle = "Devops, technology, and what I had or lunch yesterday"
+homeSubtitle = "Devops, technology, and what I had for lunch yesterday"
 
 # Set a background for the homepage
 # backgroundImage = "assets/images/background.jpg"
