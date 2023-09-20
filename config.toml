@@ -57,7 +57,7 @@ keywords = ""
 images = [""]
 
 # Home subtitle of the index page.
-homeSubtitle = "Nomadic expeditions in the digital era"
+homeSubtitle = "Devops, technology, and what I had or lunch yesterday"
 
 # Set a background for the homepage
 # backgroundImage = "assets/images/background.jpg"
@@ -110,8 +110,6 @@ theme = "#1b1c1d"
 # [params.commento]
 #   url = ""
 
-# Uncomment this if you want a portrait on your start page
-#
 [params.portrait]
 path = "/img/profile-small.png"
 alt = "Portrait"
