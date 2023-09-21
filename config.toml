@@ -3,6 +3,7 @@ languageCode = 'en-us'
 title = 'The Viking'
 theme = "hello-friend-ng"
 
+pluralizelisttitles = false
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"
 
@@ -85,7 +86,7 @@ topText = []
 bottomText = []
 
 [params.logo]
-logoText = "the viking"
+logoText = "theviking.tech"
 logoHomeLink = "/"
 logoCursorColor = "#12a212"
 logoCursorAnimate = "2s"
@@ -108,9 +109,9 @@ name = "About"
 url = "/about"
 
 [[menu.main]]
-identifier = "posts"
-name = "Posts"
-url = "/posts"
+identifier = "general"
+name = "General"
+url = "/general"
 
 [[params.social]]
 name = "github"
