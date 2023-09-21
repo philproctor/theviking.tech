@@ -60,19 +60,16 @@ images = [""]
 homeSubtitle = "Devops, technology, and what I had for lunch yesterday"
 
 # Set a background for the homepage
-# backgroundImage = "assets/images/background.jpg"
+backgroundImage = "img/background.png"
 
 # Prefix of link to the git commit detail page. GitInfo must be enabled.
-#
 # gitUrl = ""
+
 disableReadOtherPosts = false
 enableThemeToggle = true
 enableSharingButtons = true
 enableGlobalLanguageMenu = false
 
-# Integrate Javascript files or stylesheets by adding the url to the external assets or by
-# linking local files with their path relative to the static folder, e.g. "css/styles.css"
-#
 customCSS = []
 customJS = []
 
@@ -98,17 +95,6 @@ logoMark = "➤"
 mask = "#1b1c1d"
 msapplication = "#1b1c1d"
 theme = "#1b1c1d"
-
-# Commento is more than just a comments widget you can embed — 
-# it’s a return to the roots of the internet. 
-# An internet without the tracking and invasions of privacy. 
-# An internet that is simple and lightweight. 
-# An internet that is focused on interesting discussions, not ads. 
-# A better internet.
-# Uncomment this to enable Commento.
-#
-# [params.commento]
-#   url = ""
 
 [params.portrait]
 path = "/img/profile-small.png"
