@@ -16,12 +16,11 @@
 
   &__text {
     font-size: 1.125rem;
-    white-space: nowrap;
   }
 
   &__cursor {
     display: inline-block;
-    width: 10px;
+    width: 2px;
     height: 1rem;
     background: #fe5186;
     margin-left: 5px;
