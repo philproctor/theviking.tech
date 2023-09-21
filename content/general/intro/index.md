@@ -2,14 +2,8 @@
 title: "Introductions and Purpose"
 date: 2023-09-20T22:25:00-04:00
 draft: false
-author: "Phil"
-# cover: "/general/intro/cover.png"
-tags: [general]
-keywords: []
-description: ""
-showFullContent: false
-readingTime: false
-hideComments: false
+toc: false
+tags: [general, posts]
 ---
 
 {{< image src="/general/intro/cover.png" alt="My profile" position="right" style="float: right;" >}}

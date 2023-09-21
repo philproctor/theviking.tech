@@ -30,6 +30,9 @@
           hugo = ''hugo $@'';
           build = ''hugo --minify'';
           server = ''hugo server'';
+
+          new-general-post = ''hugo new general/$1/index.md'';
+          new-devops-post = ''hugo new devops/$1/index.md'';
         };
 
         scripts = builtins.mapAttrs
