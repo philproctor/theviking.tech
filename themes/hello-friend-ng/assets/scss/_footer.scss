@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    width: 760px;
+    width: $content-width;
     max-width: 100%;
 
     @media #{$media-size-tablet} {

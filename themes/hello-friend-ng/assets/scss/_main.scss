@@ -112,15 +112,19 @@ img {
   max-width: 100%;
 
   &.left {
+    padding-right: 15px;
     margin-right: auto;
   }
 
   &.center {
     margin-left: auto;
+    padding-left: 15px;
     margin-right: auto;
+    padding-right: 15px;
   }
 
   &.right {
+    padding-left: 15px;
     margin-left: auto;
   }
   &.circle {
