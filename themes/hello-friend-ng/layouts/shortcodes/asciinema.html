@@ -1,0 +1,13 @@
+<div id='asciinema-{{ .Get "name" }}'></div>
+<script>
+    AsciinemaPlayer.create('{{ .Get "name" }}.cast', document.getElementById('asciinema-{{ .Get "name" }}'), {
+        autoPlay: true,
+        loop: true,
+        idleTimeLimit: 2,
+        theme: "asciinema",
+        controls: false,
+        {{ if .Get "cols" }}cols: "{{ .Get "cols" }}",{{ end }}
+        {{ if .Get "rows" }}rows: "{{ .Get "rows" }}",{{ end }}
+        {{ if .Get "speed" }}speed: "{{ .Get "speed" }}",{{ end }}
+     });
+</script>

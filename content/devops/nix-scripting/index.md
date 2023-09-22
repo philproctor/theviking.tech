@@ -50,3 +50,5 @@ to understand configuration language. Fortunately, for our purposes here, these 
 [Nix Flakes](https://nixos.wiki/wiki/Flakes) is the system we use to provide both package locking and execution environment management.
 I have created [this demo here](https://github.com/philproctor/nix-script-runner-demo) to show a solid setup for using flakes, so let's
 break down the demo and see how it works!
+
+{{< asciinema name="nix1" rows=5 >}}
