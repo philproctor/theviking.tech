@@ -13,6 +13,8 @@
         scriptDeps = with pkgs; [
           stdenv
           hugo
+          asciinema
+          asciinema-agg
         ];
 
         scriptEnv = pkgs.buildEnv {
@@ -33,6 +35,9 @@
 
           new-general-post = ''hugo new general/$1/index.md'';
           new-devops-post = ''hugo new devops/$1/index.md'';
+
+          record-term = ''asciinema rec $(date '+%s').cast'';
+          cast-to-gif = ''agg "$1" "$(basename -s .cast $1).gif" --cols 80 --rows 20 --theme monokai'';
         };
 
         scripts = builtins.mapAttrs

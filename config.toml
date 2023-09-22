@@ -113,6 +113,11 @@ identifier = "general"
 name = "General"
 url = "/general"
 
+[[menu.main]]
+identifier = "devops"
+name = "Devops"
+url = "/devops"
+
 [[params.social]]
 name = "github"
 url = "https://github.com/philproctor"

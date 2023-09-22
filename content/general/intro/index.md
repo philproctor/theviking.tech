@@ -6,7 +6,7 @@ toc: false
 tags: [general, posts]
 ---
 
-{{< image src="/general/intro/cover.png" alt="My profile" position="right" style="float: right;" >}}
+{{< image src="/general/intro/cover.png" alt="A Viking" position="right" style="float: right;" >}}
 
 Well now, looks like I've gone and done a thing...
 
