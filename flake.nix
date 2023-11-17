@@ -36,7 +36,7 @@
           new-general-post = ''hugo new general/$1/index.md'';
           new-devops-post = ''hugo new devops/$1/index.md'';
 
-          record-term = ''asciinema rec $(date '+%s').cast'';
+          record-term = ''pushd "$RUN_FROM_DIR" ; asciinema rec $(date '+%s').cast -c bash'';
           cast-to-gif = ''agg "$1" "$(basename -s .cast $1).gif" --cols 80 --rows 20 --theme monokai'';
         };
 

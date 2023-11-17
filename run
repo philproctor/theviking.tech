@@ -1,13 +1,22 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-DO_COMMAND="${1}"
-shift
-
-if [ -z "$DO_COMMAND" ]; then
-    echo "Specify the command to run"
+if ! [ -x "$(command -v nix)" ]; then
+    echo "It does not appear that you have nix installed!"
+    echo "Follow the instructions here to install the nix package manager: https://nixos.org/download"
     exit 1
 fi
 
-set -Eeou pipefail
+if [ $# -eq 0 ]; then
+    echo "No script specified!"
+    echo "Usage:     ./run <script>"
+    exit 1
+fi
 
-exec nix run ".#${DO_COMMAND}" -- $@
+# First argument is the nix script we want to run, the remaining arguments are passed to the script
+COMMAND="$1"
+shift
+
+export RUN_FROM_DIR="$PWD"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+pushd "$SCRIPT_DIR"
+exec nix --extra-experimental-features 'nix-command flakes' run ".#${COMMAND}" -- "$@"
