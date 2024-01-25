@@ -60,7 +60,7 @@ for the script are automatically downloaded and made available to the script env
 your script, such as `jq`, `kubectl`, or just about anything else are automatically pulled without you as a user needing to think about it
 at all!
 
-## The Scaffold
+## Our Customized Scaffold
 
 The scaffolding is primarily handled through the `flake.nix` file, but additionally includes an easy-of-use wrapper for running scripts.
 
@@ -178,3 +178,24 @@ set -Eeou pipefail
 export PATH="$PATH:/nix/store/generated-env-dir/bin"
 exec ./scripts/format.std.sh "$@"
 ```
+
+## Final Results
+
+What we're left with after doing this project is a structure that looks like this:
+
+- 📂 `scripts/`
+  - 📄 `do-stuff.std.sh`
+  - 📄 `help.std.sh`
+  - 📄 `format.std.sh`
+  - 📄 `update-packages.std.sh`
+- 📄 `flake.nix`
+- 📄 `flake.lock`
+- 📄 `run`
+
+The maintenance once the boilerplate is done is simple:
+
+- Any scripts that we want to add to this project can then simply be added to the `scripts/` folder with one of our extensions and it will be autodetected as a new `run` command. Remember that scripts need to be in git `git add` and need to be executable `chmod +x`.
+- Any new dependencies can be added to `scriptDeps` inside of `flake.nix`
+- Updating the dependency lock can be done with `./run update-packages`
+- New types of scripts, such as python scripts, can be supported by amending `scriptSuffixes` in `flake.nix` and updating dependencies
+- New users of the project do not need to install **any** dependencies except for Nix itself. Our `run` script will dump a message telling them to install Nix if it's missing.
