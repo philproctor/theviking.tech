@@ -179,14 +179,43 @@ export PATH="$PATH:/nix/store/generated-env-dir/bin"
 exec ./scripts/format.std.sh "$@"
 ```
 
+### The Help Command
+
+We also want to ensure that our code is as self-documenting as possible while also keeping documentation simple. While this isn't a replacement for
+complete documentation by other means, maintaining quick help text can be made semi-automatic. To do this, we can just add another script file to our
+project called `help.std.sh`. You can
+[see the full contents of the demo help script here](https://github.com/philproctor/nix-script-runner-demo/blob/main/scripts/help.std.sh).
+
+In a nutshell what we do though is this:
+
+- Scan the `scripts/` directory for files that end in the extensions that we care about (`.std.sh` and `.tf.sh`)
+- For each script that we find, use `grep` to find the first line of code that starts with `# HELPTEXT:`
+- Output each script command along with the HELP output in a human readable format.
+
+The result looks like this:
+```bash
+$ ./run help
+Usage: ./run <command> [args...]
+
+Standard commands:
+  format                        Format flake.nix
+  help                          Display this help output
+  update-packages               Update the flake.lock with the latest version of all dependencies
+
+Terraform commands:
+  test                          Demo for files with a .tf.sh extension instead
+
+note: any arguments passed after <command> are passed directly to the script that handles that command.
+```
+
 ## Final Results
 
 What we're left with after doing this project is a structure that looks like this:
 
 - 📂 `scripts/`
-  - 📄 `do-stuff.std.sh`
   - 📄 `help.std.sh`
   - 📄 `format.std.sh`
+  - 📄 `test.tf.sh`
   - 📄 `update-packages.std.sh`
 - 📄 `flake.nix`
 - 📄 `flake.lock`
