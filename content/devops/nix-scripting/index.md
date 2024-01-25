@@ -1,6 +1,6 @@
 ---
 title: "Actual Portable Scripting with Nix"
-date: 2024-01-09T09:00:00-04:00
+date: 2024-01-25T09:00:00-04:00
 draft: false
 toc: false
 tags: [devops, scripting, nix, posts]
@@ -52,8 +52,7 @@ unchanging scaffolded environment.
 I have created [this demo here](https://github.com/philproctor/nix-script-runner-demo) to show a solid setup for using flakes, so let's
 break down the demo and see how it works!
 
-{{< asciinema name="nix1" rows=5 >}}
-TODO: Proper terminal cast
+{{< asciinema name="nix1" rows=16 cols=140 >}}
 
 From the above demo you can see that when you one of the scripts in the demo are run for the first time, all of the dependendent utilities
 for the script are automatically downloaded and made available to the script environment! This means that any utilities that you need in
