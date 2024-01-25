@@ -20,7 +20,7 @@ over time when [packages update with breaking changes](https://learn.microsoft.c
 packages get removed, or any number of other scenarios. This leads to having to update instructions, Dockerfiles, scripts,
 and so forth at what is likely a very inconvenient time and after you've already forgotten how those scripts work!
 
-Well, we don't have to deal with that... at least a little less.
+Well, we don't have to deal with that... ok, maybe still a little, but at least our packages won't change underneath us.
 
 ## Introducing Nix
 
