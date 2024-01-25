@@ -6,15 +6,16 @@ toc: false
 tags: [devops, scripting, nix, posts]
 ---
 
-Scripting is among the most common tasks that we have in the world of devops. Whether we are writing shell scripts,
-python, or whatever language we've found ourselves using, we will next need to make sure that those same scripts are
-usable by other people, continuous integration, or any other automation.
+Scripting is among the most common tasks that we have in the world of devops, but have you ever ran into the situation where
+the moment someone else goes to run one of your scripts, it immediately fails because their environment is slightly different
+from your own? What about your CI environment, is it different too? Creating consistent environments is a consistent pain
+point.
 
 So what next? Write up a set of instructions for what utilities need to be installed? Create a `Dockerfile` with all
 of the `apt-get` installs? Do instructions for people, Dockerfile for CI? Containerize everything and map host paths
 to the host machines config files and whatnot?
 
-Every one of these solutions comes with their own compromises. Additionally, these solutions are very likely to break
+Each of these solutions comes with their own compromises. Additionally, these solutions are very likely to break
 over time when [packages update with breaking changes](https://learn.microsoft.com/en-us/cli/azure/upcoming-breaking-changes),
 packages get removed, or any number of other scenarios. This leads to having to update instructions, Dockerfiles, scripts,
 and so forth at what is likely a very inconvenient time and after you've already forgotten how those scripts work!
@@ -23,7 +24,9 @@ Well, we don't have to deal with that... at least a little less.
 
 ## Introducing Nix
 
-We are likely all familiar at this point with the package management systems that come with various languages.
+So what is Nix exactly? Just another package manager? It's a bit more than that, but to fully understand, consider
+how these problems are solved elsewhere. We are likely all familiar at this point with the package management systems
+that come with various languages.
 
 - Nuget for C#
 - NPM for node.js
@@ -52,12 +55,12 @@ unchanging scaffolded environment.
 I have created [this demo here](https://github.com/philproctor/nix-script-runner-demo) to show a solid setup for using flakes, so let's
 break down the demo and see how it works!
 
-{{< asciinema name="nix1" rows=16 cols=140 >}}
+{{< asciinema name="nix1" speed=2 rows=16 cols=140 >}}
 
-From the above demo you can see that when you one of the scripts in the demo are run for the first time, all of the dependendent utilities
+From the above demo you can see that when you run one of the scripts in the demo are run for the first time, all of the dependendent utilities
 for the script are automatically downloaded and made available to the script environment! This means that any utilities that you need in
 your script, such as `jq`, `kubectl`, or just about anything else are automatically pulled without you as a user needing to think about it
-at all!
+at all! Your end users do not need to preinstall **anything** except for nix itself!
 
 ## Our Customized Scaffold
 
@@ -90,6 +93,7 @@ scriptDeps = with pkgs; [
     nixFormatter
     jq
     git
+    gnugrep
     curl
     kubectl
 ];
@@ -192,6 +196,7 @@ In a nutshell what we do though is this:
 - Output each script command along with the HELP output in a human readable format.
 
 The result looks like this:
+
 ```bash
 $ ./run help
 Usage: ./run <command> [args...]
@@ -227,3 +232,8 @@ The maintenance once the boilerplate is done is simple:
 - Updating the dependency lock can be done with `./run update-packages`
 - New types of scripts, such as python scripts, can be supported by amending `scriptSuffixes` in `flake.nix` and updating dependencies
 - New users of the project do not need to install **any** dependencies except for Nix itself. Our `run` script will dump a message telling them to install Nix if it's missing.
+
+So with a little up-front work, we have a project with scripts that will run on anyone's machine, works in any CI environment, self-documents its own commands,
+is easy to extend and maintain, and best of all it doesn't require anything other than Nix to run anywhere!
+
+Would you use this yourself?
